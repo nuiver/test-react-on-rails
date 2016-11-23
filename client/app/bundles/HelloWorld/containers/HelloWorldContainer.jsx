@@ -12,14 +12,16 @@ export default class HelloWorldContainer extends React.Component {
 
     // How to set initial state in ES6 class syntax
     // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
-    this.state = { name: this.props.name };
+    this.state = { name: this.props.name, lang: this.props.lang };
   }
 
   updateName = (name) => { this.setState({ name }); };
+  updateLang = (lang) => { this.setState({ lang }); };
+
 
   render() {
     return (
-      <HelloWorld name={this.state.name} updateName={this.updateName} />
+      <HelloWorld name={this.state.name} lang={this.state.lang} updateName={this.updateName} updateLang={this.updateLang} />
     );
   }
 }
