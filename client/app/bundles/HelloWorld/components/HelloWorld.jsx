@@ -7,7 +7,6 @@ const HelloWorld = ({ name, lang, updateName, updateLang }) => (
       Hello, {name}!
     </h3>
     <h3>Welcome to {lang}!</h3>
-    <hr />
     <form className="form-horizontal">
       <label htmlFor="name">
         Say hello to:
