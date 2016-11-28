@@ -10,6 +10,7 @@ const config = {
     'es5-shim/es5-sham',
     'babel-polyfill',
     './app/bundles/HelloWorld/startup/HelloWorldApp',
+    './app/bundles/ProductTable/startup/ProductTableApp',
   ],
 
   output: {
@@ -37,6 +38,7 @@ const config = {
         test: require.resolve('react'),
         loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
       },
+      { test: /\.css$/, loader: 'style-loader!css-loader'},
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
