@@ -4,26 +4,42 @@ import ProductRow from './ProductRow'
 
 class Overview extends React.Component {
 
-  renderProducts(product, index) {
-    return <ProductRow key={ index } { ...product } />
+  renderProducts(products) {
+    var list = [];
+    var actualCategory = null;
+    products.forEach((product) => {
+      if (product.category !== actualCategory) {
+        list.push(<ProductCategoryRow category={product.category} />);
+      }
+      list.push(<ProductRow product={product} />);
+      actualCategory = product.category;
+    });
+    return list;
   }
 
   render() {
 
     const { products, filterText, inStockOnly } = this.props
 
+    var orderedProducts = products.sort(function(a, b){
+      var categoryA=a.category.toLowerCase(), categoryB=b.category.toLowerCase()
+      if (categoryA < categoryB) //sort string ascending
+          return -1
+      if (categoryA > categoryB)
+          return 1
+      return 0 //default return value (no sorting)
+    })
+
     function checkName(product) {
-      return product.name.startsWith(filterText) ;
+      return product.name.toLowerCase().includes(filterText.toLowerCase()) ;
     }
 
-    var filteredProducts = products.filter(checkName)
+    var filteredProducts = orderedProducts.filter(checkName)
 
     return (
       <div>
-        <p>Name / Price</p>
-        <ProductCategoryRow />
         <ul>
-          { filteredProducts.map(this.renderProducts.bind(this)) }
+          { this.renderProducts(filteredProducts) }
         </ul>
       </div>
     )

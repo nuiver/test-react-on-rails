@@ -8,12 +8,11 @@ class ProductRow extends React.Component {
 
   render() {
 
-    let { name, price } = this.props
+    let { product } = this.props
 
     return (
       <li>
-        <div>{ name }</div>
-        <div>{ price }</div>
+        <div>{ product.name }   { product.price }</div>
       </li>
     )
   }

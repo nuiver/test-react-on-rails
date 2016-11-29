@@ -4,9 +4,11 @@ class ProductCategoryRow extends React.Component {
 
   render() {
 
+    let { category } = this.props
+
     return (
       <div>
-        <p>Category name</p>
+        <p>Category name: {category} </p>
       </div>
     )
   }
