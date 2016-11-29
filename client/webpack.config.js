@@ -38,7 +38,6 @@ const config = {
         test: require.resolve('react'),
         loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
       },
-      { test: /\.css$/, loader: 'style-loader!css-loader'},
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',

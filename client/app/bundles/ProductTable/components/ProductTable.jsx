@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
-import './ProductTable.css'
+// import './ProductTable.css'
+import SearchBar from './SearchBar'
+import Overview from './Overview'
 
 // Simple example of a React "smart" component
 export default class ProductTable extends React.Component {
@@ -20,7 +22,8 @@ export default class ProductTable extends React.Component {
 
     return (
       <div className='container'>
-        <p>This is a start with a { products[2].name }</p>
+        <SearchBar />
+        <Overview products = { products } />
       </div>
     );
   }
