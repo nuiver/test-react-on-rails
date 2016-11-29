@@ -10,14 +10,20 @@ class Overview extends React.Component {
 
   render() {
 
-    const { products } = this.props
+    const { products, filterText, inStockOnly } = this.props
+
+    function checkName(product) {
+      return product.name.startsWith(filterText) ;
+    }
+
+    var filteredProducts = products.filter(checkName)
 
     return (
       <div>
         <p>Name / Price</p>
         <ProductCategoryRow />
         <ul>
-          { products.map(this.renderProducts.bind(this)) }
+          { filteredProducts.map(this.renderProducts.bind(this)) }
         </ul>
       </div>
     )

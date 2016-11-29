@@ -14,16 +14,20 @@ export default class ProductTable extends React.Component {
 
     // How to set initial state in ES6 class syntax
     // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
-    this.state = { products: JSON.parse(this.props.products) };
+    this.state = { products: JSON.parse(this.props.products), filterText: '', inStockOnly: false };
   }
 
+
+  updateSearch = (filterText) => { this.setState({ filterText }); };
+
+
   render() {
-    const { products } = this.state
+    const { products, filterText, inStockOnly } = this.state
 
     return (
       <div className='container'>
-        <SearchBar />
-        <Overview products = { products } />
+        <SearchBar filterText = { filterText } inStockOnly = { inStockOnly } updateSearch = {this.updateSearch} />
+        <Overview products = { products } filterText = { filterText } inStockOnly = { inStockOnly } />
       </div>
     );
   }
