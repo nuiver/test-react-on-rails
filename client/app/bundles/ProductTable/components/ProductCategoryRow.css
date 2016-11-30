@@ -1,0 +1,8 @@
+.categoryrow {
+  background-color: #cccccc;
+}
+
+.categoryrow p{
+  margin: 10px 0 2px 0; 
+  font-weight: bold;
+}

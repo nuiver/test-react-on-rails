@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import './ProductCategoryRow.css'
 
 class ProductCategoryRow extends React.Component {
 
@@ -7,8 +8,8 @@ class ProductCategoryRow extends React.Component {
     let { category } = this.props
 
     return (
-      <div>
-        <p>Category name: {category} </p>
+      <div className='categoryrow'>
+        <p>{category} </p>
       </div>
     )
   }

@@ -1,0 +1,7 @@
+.productlist {
+  padding: 0;
+}
+
+.productlist li {
+  list-style-type: none;
+}

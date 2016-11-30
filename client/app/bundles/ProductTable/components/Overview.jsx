@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import ProductCategoryRow from './ProductCategoryRow'
 import ProductRow from './ProductRow'
-
+import './Overview.css'
 class Overview extends React.Component {
 
   renderProducts(products) {
@@ -38,7 +38,7 @@ class Overview extends React.Component {
 
     return (
       <div>
-        <ul>
+        <ul className='productlist'>
           { this.renderProducts(filteredProducts) }
         </ul>
       </div>

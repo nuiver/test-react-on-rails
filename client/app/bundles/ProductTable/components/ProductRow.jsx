@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import './ProductRow.css'
 
 class ProductRow extends React.Component {
 
@@ -22,7 +23,8 @@ class ProductRow extends React.Component {
 
     return (
       <li>
-        <div>{ this.availableProductCheck(product) }   { product.price }</div>
+        <div className='product'>{ this.availableProductCheck(product) }</div>
+        <div className='price'>{ product.price }</div>
       </li>
     )
   }

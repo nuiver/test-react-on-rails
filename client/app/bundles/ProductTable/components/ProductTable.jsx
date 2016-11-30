@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-// import './ProductTable.css'
+import './ProductTable.css'
 import SearchBar from './SearchBar'
 import Overview from './Overview'
 
