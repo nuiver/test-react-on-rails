@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
 import './ProductTable.css'
 import SearchBar from './SearchBar'
+import AddBar from './AddBar'
 import Overview from './Overview'
 
 // Simple example of a React "smart" component
 export default class ProductTable extends React.Component {
   static propTypes = {
-    products: PropTypes.arrayOf(React.PropTypes.object).isRequired, // this is passed from the Rails view
+    products: PropTypes.string.isRequired, // this is passed from the Rails view
   };
 
   constructor(props) {
@@ -20,12 +21,20 @@ export default class ProductTable extends React.Component {
 
   updateSearch = (filterText) => { this.setState({ filterText }); };
 
+  refreshProducts() {
+    var that = this;
+    $.getJSON('/products').success(function(data) {
+      console.log('We are refreshing after AJAX...');
+      that.setState({ products: data});
+    } );
+  }
 
   render() {
     const { products, filterText, inStockOnly } = this.state
 
     return (
       <div className='container'>
+        <AddBar refreshProducts = { this.refreshProducts.bind(this) } />
         <SearchBar filterText = { filterText } inStockOnly = { inStockOnly } updateSearch = {this.updateSearch} />
         <Overview products = { products } filterText = { filterText } inStockOnly = { inStockOnly } />
       </div>

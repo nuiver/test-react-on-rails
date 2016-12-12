@@ -9,9 +9,9 @@ class Overview extends React.Component {
     var actualCategory = null;
     products.forEach((product) => {
       if (product.category !== actualCategory) {
-        list.push(<ProductCategoryRow category={product.category} />);
+        list.push(<ProductCategoryRow key={product.category} category={product.category} />);
       }
-      list.push(<ProductRow product={product} />);
+      list.push(<ProductRow key={product.name} product={product} />);
       actualCategory = product.category;
     });
     return list;
